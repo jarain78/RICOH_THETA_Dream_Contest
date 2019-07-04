@@ -1,0 +1,27 @@
+#Internal package file, do not edit.
+#Mon Jul 01 13:48:32 CEST 2019
+2.base=E\:\\Dropbox\\Hacksterio_Projects\\RICOH_THETA_Dream_Contest\\RICOH_Camera_Robot_Assistant\\app\\build\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
+5.set=ASSET
+0.path=license.html
+2.baseType=DIRECTORY
+3.base=E\:\\Dropbox\\Hacksterio_Projects\\RICOH_THETA_Dream_Contest\\RICOH_Camera_Robot_Assistant\\app\\build\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
+2.set=ASSET
+1.path=snips/g2p/es.zip
+4.base=E\:\\Dropbox\\Hacksterio_Projects\\RICOH_THETA_Dream_Contest\\RICOH_Camera_Robot_Assistant\\app\\build\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
+count=6
+5.baseType=DIRECTORY
+2.path=snips/g2p/it.zip
+5.base=E\:\\Dropbox\\Hacksterio_Projects\\RICOH_THETA_Dream_Contest\\RICOH_Camera_Robot_Assistant\\app\\build\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
+4.set=ASSET
+3.path=snips/g2p/de.zip
+3.baseType=DIRECTORY
+1.set=ASSET
+4.path=snips/g2p/fr.zip
+1.baseType=DIRECTORY
+5.path=snips/g2p/en.zip
+0.base=E\:\\Dropbox\\Hacksterio_Projects\\RICOH_THETA_Dream_Contest\\RICOH_Camera_Robot_Assistant\\app\\build\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
+0.baseType=DIRECTORY
+3.set=ASSET
+1.base=E\:\\Dropbox\\Hacksterio_Projects\\RICOH_THETA_Dream_Contest\\RICOH_Camera_Robot_Assistant\\app\\build\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
+4.baseType=DIRECTORY
+0.set=ASSET

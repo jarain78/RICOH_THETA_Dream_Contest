@@ -1,0 +1,90 @@
+package com.example.robot_ricoh_theta_z1;
+
+import android.Manifest;
+import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+
+
+import com.theta360.pluginlibrary.activity.PluginActivity;
+import com.theta360.pluginlibrary.callback.KeyCallback;
+import com.theta360.pluginlibrary.receiver.KeyReceiver;
+import com.theta360.pluginlibrary.values.LedColor;
+import com.theta360.pluginlibrary.values.LedTarget;
+
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Set;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+
+
+public class MainActivity extends PluginActivity {
+
+    private BluetoothAdapter BA;
+    private Set<BluetoothDevice> pairedDevices;
+    private File assistantLocation;
+    private static final String TAG = "MainActivity";
+    Context contexto = this;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //setContentView(R.layout.activity_main);
+
+        BA = BluetoothAdapter.getDefaultAdapter();
+
+
+        // Snips Assistant
+
+        assistantLocation = new File(getFilesDir(), "snips");
+        extractAssistantIfNeeded(assistantLocation);
+
+        /*if (ensurePermissions()) {
+            startSnips(assistantLocation);
+        }*/
+
+
+        setKeyCallback(new KeyCallback() {
+            @Override
+            public void onKeyDown(int keyCode, KeyEvent event) {
+                if (keyCode == KeyReceiver.KEYCODE_CAMERA) {
+                    Intent turnOn = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                    System.out.println("theta debug: pressed camera mode button down");
+
+                }
+            }
+
+            @Override
+            public void onKeyUp(int keyCode, KeyEvent event) {
+                notificationLedShow(LedTarget.LED6);
+                notificationLed3Show(LedColor.MAGENTA);
+                System.out.println("theta debug: camera now in plug-in mode  :-)");
+
+                System.out.println("--------------------------------------");
+                get_file_list();
+
+            }
+
+            @Override
+            public void onKeyLongPress(int keyCode, KeyEvent event) {
+
+            }
+
+
+            /*public native byte[] rgba2bgra(int width, int height, byte[] src);
+            // Jarain78
+            public native byte[] processing(int width, int height, byte[] src)
