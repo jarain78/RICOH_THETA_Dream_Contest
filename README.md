@@ -1,4 +1,4 @@
-"# RICOH_THETA_Dream" 
+**RICOH THETA Dream Contests**
 
 
 This repository consists of 3 folders: AssitantRicoh, RICOH_Camera_Robot_Assistant and RICOH_THETA_V_ESP32_USB_Robot.
