@@ -12,8 +12,8 @@ import io
 
 ip = "192.168.1.4"
 url_base = "http://" + ip + "/osc/"
-theta_id = "THETAYL00185995.OSC"
-theta_password = "00185995"
+theta_id = "---.OSC"
+theta_password = "****"
 
 url = url_base + "commands/execute"
 
