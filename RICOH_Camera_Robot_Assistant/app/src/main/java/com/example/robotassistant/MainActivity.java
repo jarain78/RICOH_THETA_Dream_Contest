@@ -1,20 +1,14 @@
 package com.example.robotassistant;
 
 import android.Manifest;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Path;
 import android.graphics.PointF;
-import android.graphics.Rect;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
@@ -24,17 +18,16 @@ import android.media.FaceDetector;
 import android.media.FaceDetector.Face;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
-import android.net.Uri;
-import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.Settings;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.Voice;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
-import android.util.SparseArray;
 import android.view.KeyEvent;
-import android.app.AlertDialog;
-
 
 import java.io.ByteArrayOutputStream;
 
@@ -60,21 +53,22 @@ import java.net.URLConnection;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import android.widget.EditText;
 import android.widget.ImageView;
 
 
 import ai.snips.hermes.IntentMessage;
 import ai.snips.hermes.Slot;
 import ai.snips.platform.SnipsPlatformClient;
+import ai.snips.hermes.SayMessage;
+
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
@@ -82,7 +76,6 @@ import kotlin.jvm.functions.Function1;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
-import org.json.JSONException;
 import org.theta4j.osc.MJpegInputStream;
 import org.theta4j.webapi.Theta;
 import org.theta4j.webapi.GpsInfo;
@@ -97,8 +90,14 @@ public class MainActivity extends PluginActivity {
     private static final int PERMISSION_REQUEST_CODE = 200;
     private static final String TAG = "MainActivity";
     private SnipsPlatformClient client;
+    MediaPlayer mediaPlayer;
+
 
     Context context;
+
+    // SNIPS
+    TextToSpeech t1;
+
 
     // USB
     private static final int USB_VENDOR_ID = 0x10c4; //0x2341; // 9025
@@ -154,10 +153,14 @@ public class MainActivity extends PluginActivity {
         boolean flag_media_recorder = prepareMediaRecorder();
         System.out.println(flag_media_recorder);
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 2; i < 20; i++) {
             String web_server_host = "http://192.168.1." + Integer.toString(i) + ":80/download";
+            System.out.println(web_server_host);
+
             new download_file_from_web().execute(web_server_host);
         }
+
+        init_text2speech();
 
 
         // Init USB Serial Port
@@ -180,6 +183,10 @@ public class MainActivity extends PluginActivity {
                 notificationLedShow(LedTarget.LED6);
                 notificationLed3Show(LedColor.YELLOW);
                 //get_gps_info();
+
+                //playSound("error.wav");
+                //playSound("start_of_input.wav");
+
                 System.out.println("theta debug: camera now in plug-in mode  :-)");
                 File assistantDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString(), "assistant");
                 System.out.println("Path: " + assistantDir);
@@ -195,7 +202,26 @@ public class MainActivity extends PluginActivity {
         });
     }
 
+    private void init_text2speech() {
+        t1 = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status != TextToSpeech.ERROR) {
+                    t1.setLanguage(Locale.US);
+                    t1.setPitch((float) (0.1 / 100.0));
+                 }
+            }
+        });
+    }
 
+    private void text2speech(String text){
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            t1.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
+        }else{
+            t1.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+        }
+    }
     // ---------------------------------------------------------------------------------------------
     // GPS Info
     // https://javadoc.io/doc/org.theta4j/theta-web-api/1.3.0
@@ -303,7 +329,7 @@ public class MainActivity extends PluginActivity {
                     public Unit invoke(final SnipsPlatformClient.SnipsPlatformError
                                                snipsPlatformError) {
 
-                        //playSound("error.wav");
+                        playSound("error.wav");
                         // Handle error
                         Log.d(TAG, "Error: " + snipsPlatformError.getMessage());
                         return null;
@@ -314,8 +340,7 @@ public class MainActivity extends PluginActivity {
             @Override
             public Unit invoke() {
 
-
-                //playSound("start_of_input.wav");
+                playSound("start_of_input.wav");
 
                 // Wake word detected, start a dialog session
                 Log.d(TAG, "Wake word detected!");
@@ -370,6 +395,9 @@ public class MainActivity extends PluginActivity {
                     if (action.equals("tomar") && intent.equals("foto")) {
                         System.out.println("Taking Picture...");
                         take_picture();
+
+                        text2speech("Hi, I am Jaime");
+
                         //get_live_preview();
                         image_processing();
                         notificationLedHide(LedTarget.LED3);
@@ -662,6 +690,7 @@ public class MainActivity extends PluginActivity {
         }
     }
 
+
     private void playSound(String sound) {
         String soundFilePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/assistant/custom_dialogue/sound/" + sound;
 
@@ -677,7 +706,7 @@ public class MainActivity extends PluginActivity {
         int maxVol = audioManager.getStreamMaxVolume(AudioManager.STREAM_RING); // 2019/1/21追記
         audioManager.setStreamVolume(AudioManager.STREAM_RING, maxVol, 0); // 2019/1/21追記
 
-        MediaPlayer mediaPlayer = new MediaPlayer();
+        mediaPlayer = new MediaPlayer();
         AudioAttributes attributes = new AudioAttributes.Builder()
                 .setUsage(AudioAttributes.USAGE_MEDIA)
                 .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
@@ -686,19 +715,29 @@ public class MainActivity extends PluginActivity {
         try {
             mediaPlayer.setAudioAttributes(attributes);
             mediaPlayer.setDataSource(soundFilePath);
-            mediaPlayer.setVolume(1.0f, 1.0f);
+            mediaPlayer.setVolume(100.0f, 100.0f);
+
             mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
                     mp.release();
                 }
             });
+
             mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mp) {
                     mp.start();
                 }
             });
+
+            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    mp.start();
+                }
+            });
+
             mediaPlayer.prepare();
             Log.d(TAG, "Start");
         } catch (Exception e) {
@@ -707,6 +746,14 @@ public class MainActivity extends PluginActivity {
             notificationError("");
         }
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mediaPlayer.stop();
+        mediaPlayer.release();
+    }
+
 
     /*private void playSound(String sound) {
         String root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/assistant/custom_dialogue/sound/" + sound;
@@ -894,7 +941,7 @@ public class MainActivity extends PluginActivity {
                         int x = (int) (my_mid_point.x - my_eyes_distance);
                         int y = (int) (my_mid_point.y - my_eyes_distance);
 
-                        int w =  (int) (my_mid_point.y + my_eyes_distance) + x;
+                        int w = (int) (my_mid_point.y + my_eyes_distance) + x;
                         int h = (int) (my_mid_point.x + my_eyes_distance) + y;
 
 
