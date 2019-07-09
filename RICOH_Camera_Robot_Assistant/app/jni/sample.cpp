@@ -6,7 +6,7 @@
 extern "C"
 {
 JNIEXPORT jstring JNICALL
-Java_com_example_robotassistant_MainActivity_version(
+Java_com_robotassistant_MainActivity_version(
         JNIEnv *env,
         jobject) {
     std::string version = cv::getVersionString();
@@ -14,7 +14,7 @@ Java_com_example_robotassistant_MainActivity_version(
 }
 
 JNIEXPORT jbyteArray
-JNICALL Java_com_example_robotassistant_MainActivity_rgba2bgra
+JNICALL Java_com_robotassistant_MainActivity_rgba2bgra
         (
                 JNIEnv *env,
                 jobject obj,
@@ -60,7 +60,7 @@ JNICALL Java_com_example_robotassistant_MainActivity_rgba2bgra
 }
 
 JNIEXPORT jbyteArray
-JNICALL Java_com_example_robotassistant_MainActivity_processing
+JNICALL Java_com_robotassistant_MainActivity_processing
         (
                 JNIEnv *env,
                 jobject obj,
@@ -108,7 +108,7 @@ JNICALL Java_com_example_robotassistant_MainActivity_processing
 }
 
 JNIEXPORT jbyteArray
-JNICALL Java_com_example_robotassistant_MainActivity_flipimage
+JNICALL Java_com_robotassistant_MainActivity_flipimage
         (
                 JNIEnv *env,
                 jobject obj,

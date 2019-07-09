@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-52:12
+ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-57:12
 MERGED from [ai.snips:snips-platform-android:0.62.3] C:\Users\jarain78\.gradle\caches\transforms-1\files-1.1\snips-platform-android-0.62.3.aar\6c1e1cbdbdeee53c8f35b001af4c41ac\AndroidManifest.xml:2:1-19:12
 MERGED from [com.github.felHR85:UsbSerial:6.0.6] C:\Users\jarain78\.gradle\caches\transforms-1\files-1.1\UsbSerial-6.0.6.aar\c734b31a44b5715f9176ad8728ab8ca2\AndroidManifest.xml:2:1-9:12
 MERGED from [com.theta360:pluginlibrary:2.0.0] C:\Users\jarain78\.gradle\caches\transforms-1\files-1.1\pluginlibrary-2.0.0.aar\e47fed9604c222c84a143660c4162518\AndroidManifest.xml:2:1-14:12
@@ -40,20 +40,20 @@ MERGED from [com.android.support:interpolator:28.0.0] C:\Users\jarain78\.gradle\
 MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\jarain78\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\2592ce9b61022e5b9053c6cd60cbdced\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\jarain78\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\244b5a7ee868abc4ad679cbb33b1a37a\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\jarain78\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\2a31d9e1b447824fa774d2d71e9c51f7\AndroidManifest.xml:17:1-22:12
-INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-57:12
 	package
-		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:3:5-41
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:3:5-33
 		INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml
 		INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml
-		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-52:12
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-57:12
 		INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml
-		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-52:12
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-57:12
 		INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:11-69
@@ -111,8 +111,32 @@ ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera
 		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:18:58-81
 	android:name
 		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:18:19-57
+uses-feature#com.theta360.receptor.webapi
+ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:20:5-84
+	android:version
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:20:63-82
+	android:name
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:20:19-62
+uses-feature#com.theta360.receptor.mtpapi
+ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:21:5-84
+	android:version
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:21:63-82
+	android:name
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:21:19-62
+uses-feature#com.theta360.receptor.bleapi
+ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:22:5-84
+	android:version
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:22:63-82
+	android:name
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:22:19-62
+uses-feature#com.theta360.receptor.pluginapi
+ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:23:5-87
+	android:version
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:23:66-85
+	android:name
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:23:19-65
 application
-ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:21:5-50:19
+ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:26:5-55:19
 MERGED from [ai.snips:snips-platform-android:0.62.3] C:\Users\jarain78\.gradle\caches\transforms-1\files-1.1\snips-platform-android-0.62.3.aar\6c1e1cbdbdeee53c8f35b001af4c41ac\AndroidManifest.xml:11:5-17:19
 MERGED from [ai.snips:snips-platform-android:0.62.3] C:\Users\jarain78\.gradle\caches\transforms-1\files-1.1\snips-platform-android-0.62.3.aar\6c1e1cbdbdeee53c8f35b001af4c41ac\AndroidManifest.xml:11:5-17:19
 MERGED from [com.theta360:pluginlibrary:2.0.0] C:\Users\jarain78\.gradle\caches\transforms-1\files-1.1\pluginlibrary-2.0.0.aar\e47fed9604c222c84a143660c4162518\AndroidManifest.xml:11:5-12:19
@@ -130,49 +154,49 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\jarain78\.
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\jarain78\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\ef2228635ac805cd0e215ad8cac20b98\AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:26:9-35
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:31:9-35
 	android:label
-		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:24:9-41
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:29:9-41
 	android:roundIcon
-		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:25:9-54
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:30:9-54
 	android:icon
-		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:23:9-43
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:28:9-43
 	android:allowBackup
-		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:22:9-35
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:27:9-35
 	android:theme
-		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:27:9-40
-activity#com.example.robotassistant.MainActivity
-ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:28:9-47:20
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:32:9-40
+activity#com.robotassistant.MainActivity
+ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:33:9-52:20
 	android:name
-		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:28:19-47
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:33:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:30:13-33:29
+ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:35:13-38:29
 action#android.intent.action.MAIN
-ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:31:17-69
+ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:36:17-69
 	android:name
-		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:31:25-66
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:36:25-66
 category#android.intent.category.LAUNCHER
-ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:32:17-77
+ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:37:17-77
 	android:name
-		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:32:27-74
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:37:27-74
 intent-filter#action:name:android.hardware.usb.action.USB_DEVICE_ATTACHED
-ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:35:13-37:29
+ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:40:13-42:29
 action#android.hardware.usb.action.USB_DEVICE_ATTACHED
-ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:36:17-90
+ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:41:17-90
 	android:name
-		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:36:25-87
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:41:25-87
 meta-data#android.hardware.usb.action.USB_DEVICE_ATTACHED
-ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:40:13-42:56
+ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:45:13-47:56
 	android:resource
-		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:42:17-54
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:47:17-54
 	android:name
-		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:41:17-79
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:46:17-79
 meta-data#com.google.android.gms.vision.DEPENDENCIES
-ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:44:13-46:40
+ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:49:13-51:40
 	android:value
-		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:46:17-37
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:51:17-37
 	android:name
-		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:45:17-74
+		ADDED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:50:17-74
 uses-sdk
 INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml
@@ -267,4 +291,4 @@ ADDED from [ai.snips:snips-platform-android:0.62.3] C:\Users\jarain78\.gradle\ca
 	android:name
 		ADDED from [ai.snips:snips-platform-android:0.62.3] C:\Users\jarain78\.gradle\caches\transforms-1\files-1.1\snips-platform-android-0.62.3.aar\6c1e1cbdbdeee53c8f35b001af4c41ac\AndroidManifest.xml:13:13-68
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-52:12 reason: tensorflow.contrib.android has a targetSdkVersion < 4
+IMPLIED from E:\Dropbox\Hacksterio_Projects\RICOH_THETA_Dream_Contest\RICOH_Camera_Robot_Assistant\app\src\main\AndroidManifest.xml:2:1-57:12 reason: tensorflow.contrib.android has a targetSdkVersion < 4
