@@ -1,4 +1,4 @@
-package com.example.robotassistant;
+package com.robotassistant;
 
 import org.junit.Test;
 

@@ -19,19 +19,15 @@ import android.media.FaceDetector.Face;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.Settings;
 import android.speech.tts.TextToSpeech;
-import android.speech.tts.Voice;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.KeyEvent;
 
 import java.io.ByteArrayOutputStream;
 
-import com.robotassistant.R;
 import com.felhr.usbserial.UsbSerialDevice;
 import com.felhr.usbserial.UsbSerialInterface;
 import com.theta360.pluginlibrary.activity.PluginActivity;
@@ -48,7 +44,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.math.BigDecimal;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.ByteBuffer;
@@ -68,7 +63,6 @@ import android.widget.ImageView;
 import ai.snips.hermes.IntentMessage;
 import ai.snips.hermes.Slot;
 import ai.snips.platform.SnipsPlatformClient;
-import ai.snips.hermes.SayMessage;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
@@ -81,10 +75,14 @@ import org.theta4j.osc.MJpegInputStream;
 import org.theta4j.webapi.Theta;
 import org.theta4j.webapi.GpsInfo;
 
-import org.tensorflow.Graph;
-
 
 public class MainActivity extends PluginActivity {
+
+
+    static {
+        System.loadLibrary("robotassistant");
+    }
+
 
     private MediaRecorder mediaRecorder;
     private static final int AUDIO_ECHO_REQUEST = 0;
@@ -193,7 +191,6 @@ public class MainActivity extends PluginActivity {
                 System.out.println("Path: " + assistantDir);
                 startSnips(assistantDir);
 
-                //write_data();
             }
 
             @Override
@@ -210,18 +207,14 @@ public class MainActivity extends PluginActivity {
                 if (status != TextToSpeech.ERROR) {
                     t1.setLanguage(Locale.US);
                     t1.setPitch((float) (0.1 / 100.0));
-                 }
+                }
             }
         });
     }
 
-    private void text2speech(String text){
+    private void text2speech(String text) {
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            t1.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
-        }else{
-            t1.speak(text, TextToSpeech.QUEUE_FLUSH, null);
-        }
+        t1.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
     }
     // ---------------------------------------------------------------------------------------------
     // GPS Info
@@ -242,7 +235,7 @@ public class MainActivity extends PluginActivity {
     // ---------------------------------------------------------------------------------------------
     // Check the Permissions associated to the APP
     // ---------------------------------------------------------------------------------------------
-    private boolean audio_permissions() {
+    private void audio_permissions() {
 
         String[] permissions = {Manifest.permission.RECORD_AUDIO};
 
@@ -253,15 +246,13 @@ public class MainActivity extends PluginActivity {
 
         if (status != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(MainActivity.this, permissions, AUDIO_ECHO_REQUEST);
-            return false;
         }
 
-        return true;
     }
 
     //Manifest.permission.INTERNET,
 
-    private boolean write_stored_permissions() {
+    private void write_stored_permissions() {
 
         String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
@@ -271,13 +262,11 @@ public class MainActivity extends PluginActivity {
 
         if (status != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(MainActivity.this, permissions, PERMISSION_REQUEST_CODE);
-            return false;
         }
 
-        return true;
     }
 
-    private boolean read_stored_permissions() {
+    private void read_stored_permissions() {
 
         String[] permissions = {READ_EXTERNAL_STORAGE};
 
@@ -287,10 +276,8 @@ public class MainActivity extends PluginActivity {
 
         if (status != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(MainActivity.this, permissions, PERMISSION_REQUEST_CODE);
-            return false;
         }
 
-        return true;
     }
 
     //----------------------------------------------------------------------------------------------
@@ -298,8 +285,10 @@ public class MainActivity extends PluginActivity {
     // Ref: https://stackoverflow.com/questions/7908193/how-to-access-downloads-folder-in-android
     //----------------------------------------------------------------------------------------------
     private void startSnips(File snipsDir) {
+
         SnipsPlatformClient client = createClient(snipsDir);
         client.connect(this.getApplicationContext());
+
     }
 
     private SnipsPlatformClient createClient(File assistantLocation) {
@@ -395,11 +384,11 @@ public class MainActivity extends PluginActivity {
 
                     if (action.equals("tomar") && intent.equals("foto")) {
                         System.out.println("Taking Picture...");
+
                         take_picture();
 
                         text2speech("Hi, I am Jaime");
 
-                        //get_live_preview();
                         image_processing();
                         notificationLedHide(LedTarget.LED3);
                         notificationLed3Show(LedColor.YELLOW);
@@ -641,14 +630,17 @@ public class MainActivity extends PluginActivity {
 
         executor.submit(() -> {
             try {
+
                 MJpegInputStream camera_preview = theta.getLivePreview();
                 InputStream image = camera_preview.nextFrame();
                 Bitmap bitmap = BitmapFactory.decodeStream(image);
-                thetaImageView.setImageBitmap(bitmap);
+                face_detection(bitmap, false);
+
+                //thetaImageView.setImageBitmap(bitmap);
 
             } catch (IOException e) {
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(1);
                 } catch (InterruptedException e1) {
                     e1.printStackTrace();
                 }
@@ -779,16 +771,7 @@ public class MainActivity extends PluginActivity {
     //----------------------------------------------------------------------------------------------
     // Image Processing
     //----------------------------------------------------------------------------------------------
-    // native functions
-    public native String version();
 
-    public native byte[] rgba2bgra(int width, int height, byte[] src);
-
-    // Jarain78
-    public native byte[] processing(int width, int height, byte[] src);
-
-    // Jarain78
-    public native byte[] flipimage(int width, int height, byte[] src);
 
     private void image_processing() {
 
@@ -807,7 +790,10 @@ public class MainActivity extends PluginActivity {
             //thetaImageView.setImageBitmap(image_loaded);
             //Bitmap new_image = resize_image(image_loaded, 800, 400);
             //change_compress_format(new_image, path);
-            face_detection(image_loaded);
+
+            face_detection(image_loaded, true);
+
+            //line_detection(image_loaded);
         }
     }
 
@@ -891,7 +877,7 @@ public class MainActivity extends PluginActivity {
     }
 
 
-    private void face_detection(Bitmap my_bitmap) {
+    private void face_detection(Bitmap my_bitmap, boolean show) {
 
         //faces = new LinkedList<Rect>();
         int height = my_bitmap.getHeight();
@@ -930,6 +916,12 @@ public class MainActivity extends PluginActivity {
                         face.getMidPoint(my_mid_point);
                         my_eyes_distance = face.eyesDistance();
 
+                        double viewWidth = canvas.getWidth();
+                        double viewHeight = canvas.getHeight();
+                        double imageWidth = mutableBitmap.getWidth();
+                        double imageHeight = mutableBitmap.getHeight();
+                        double scale = Math.min(viewWidth / imageWidth, viewHeight / imageHeight);
+
                         System.out.println("Euler_X: " + face.pose(FaceDetector.Face.EULER_X) +
                                 " Euler_Y: " + face.pose(FaceDetector.Face.EULER_Y) +
                                 " Euler_Z: " + face.pose(FaceDetector.Face.EULER_Z));
@@ -939,19 +931,20 @@ public class MainActivity extends PluginActivity {
                                 (int) (my_mid_point.x + my_eyes_distance * 2),
                                 (int) (my_mid_point.y + my_eyes_distance * 2), myPaint);
 
+
                         int x = (int) (my_mid_point.x - my_eyes_distance);
                         int y = (int) (my_mid_point.y - my_eyes_distance);
 
                         int w = (int) (my_mid_point.y + my_eyes_distance) + x;
                         int h = (int) (my_mid_point.x + my_eyes_distance) + y;
 
-
                         System.out.println(x + " " + y + " " + w + " " + h);
                         System.out.println("=====================================================================");
-                        Bitmap crop_image = Bitmap.createBitmap(mutableBitmap, x, y, w, h);
+                        //Bitmap crop_image = Bitmap.createBitmap(mutableBitmap, x, y, w, h);
 
-
-                        thetaImageView.setImageBitmap(crop_image);
+                        if (show) {
+                            thetaImageView.setImageBitmap(mutableBitmap);
+                        }
                     }
                 }
             }
@@ -961,6 +954,35 @@ public class MainActivity extends PluginActivity {
             return;
         }
     }
+
+
+    // native functions
+
+    private native String versioncv();
+
+    public native byte[] rgba2bgra(int width, int height, byte[] src);
+
+    // Jarain78
+    public native byte[] processing(int width, int height, byte[] src);
+
+    // Jarain78
+    //public native byte[] flipimage(int width, int height, byte[] src);
+
+    // Jarain78
+    //public native byte[] linedetection(int width, int height, byte[] src);
+
+    private void line_detection(Bitmap img) {
+        System.out.println(versioncv());
+
+        ByteBuffer byteBuffer = ByteBuffer.allocate(img.getByteCount());
+        img.copyPixelsToBuffer(byteBuffer);
+        // set the output image on an ImageView
+        Bitmap bmp = Bitmap.createBitmap(img.getWidth(), img.getHeight(), Bitmap.Config.ARGB_8888);
+        byte[] dst = rgba2bgra(img.getWidth(), img.getHeight(), byteBuffer.array());
+        bmp.copyPixelsFromBuffer(ByteBuffer.wrap(dst));
+        thetaImageView.setImageBitmap(bmp);
+    }
+
 
     private Bitmap crop_image(Bitmap image, PointF my_mid_point, double my_eyes_distance) {
 

@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.robotassistant"
+        applicationId "com.robotassistant"
         minSdkVersion 25
         targetSdkVersion 28
         versionCode 1
@@ -28,8 +28,7 @@ android {
     }
     externalNativeBuild {
         ndkBuild {
-
-            path file('jni/Android.mk')
+            path file('E:\\Dropbox\\Hacksterio_Projects\\RICOH_THETA_Dream_Contest\\RICOH_Camera_Robot_Assistant\\app\\jni\\Android.mk')
         }
     }
 

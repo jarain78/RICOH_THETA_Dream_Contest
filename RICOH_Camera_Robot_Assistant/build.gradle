@@ -7,7 +7,7 @@ buildscript {
         
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
+        classpath 'com.android.tools.build:gradle:3.4.2'
         
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -20,13 +20,8 @@ allprojects {
         jcenter()
 
         maven { url 'https://github.com/ricohapi/theta-plugin-library/raw/master/repository' }
-        maven {
-            url "https://nexus-repository.snips.ai/repository/snips-maven-releases/"
-        }
-        maven {
-            url "https://nexus-repository.snips.ai/repository/snips-maven-snapshots/"
-        }
-
+        maven {url "https://nexus-repository.snips.ai/repository/snips-maven-releases/"}
+        maven {url "https://nexus-repository.snips.ai/repository/snips-maven-snapshots/"}
         maven { url "https://jitpack.io" }
 
     }

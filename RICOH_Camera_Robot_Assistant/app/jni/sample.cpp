@@ -2,16 +2,19 @@
 #include <string>
 #include <opencv2/core.hpp>
 #include <opencv/cv.hpp>
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/imgproc.hpp>
 
-extern "C"
-{
+extern "C" {
 JNIEXPORT jstring JNICALL
-Java_com_robotassistant_MainActivity_version(
-        JNIEnv *env,
-        jobject) {
+Java_com_robotassistant_MainActivity_versioncv(JNIEnv *env,
+                                               jobject) {
     std::string version = cv::getVersionString();
     return env->NewStringUTF(version.c_str());
+
 }
+
 
 JNIEXPORT jbyteArray
 JNICALL Java_com_robotassistant_MainActivity_rgba2bgra
@@ -85,7 +88,7 @@ JNICALL Java_com_robotassistant_MainActivity_processing
     cv::Mat detected_edges(h, w, CV_8UC4);
 
     //cv::cvtColor(m_src, m_dst, CV_RGBA2GRAY);
-    cv::blur(m_src, detected_edges, cv::Size(11,11));
+    cv::blur(m_src, detected_edges, cv::Size(11, 11));
 
     //-----------------------------------------------------
     // Pick out arrangement from cv::Mat
@@ -148,4 +151,53 @@ JNICALL Java_com_robotassistant_MainActivity_flipimage
     return dst;
 
 }
+
+
+JNIEXPORT jbyteArray
+JNICALL Java_com_robotassistant_MainActivity_linedetection
+        (
+                JNIEnv *env,
+                jobject obj,
+                jint w,
+                jint h,
+                jbyteArray src
+        ) {
+    // Obtaining element row
+    // Need to release at the end
+    jbyte *p_src = env->GetByteArrayElements(src, NULL);
+    if (p_src == NULL) {
+        return NULL;
+    }
+
+    //typedef Vec<float, 2> Vec2f;
+
+    // Convert arrangement to cv::Mat
+    cv::Mat m_src(h, w, CV_8UC4, (u_char *) p_src);
+    cv::Mat m_dst(h, w, CV_8UC1);
+    cv::Mat m_dst1(h, w, CV_8UC1);
+
+    cv::cvtColor( m_src, m_dst1, CV_BGR2BGRA );
+
+    cv::Canny(m_dst, m_dst1, 50, 200, 3);
+
+    //printf ("Pixel: %d \n", m_dst1);
+    u_char *p_dst = m_dst1.data;
+
+    jbyteArray dst = env->NewByteArray(w * h * 4);
+
+    if (dst == NULL) {
+        env->ReleaseByteArrayElements(src, p_src, 0);
+        return NULL;
+    }
+    env->SetByteArrayRegion(dst, 0, w * h * 4, (jbyte *) p_dst);
+
+    // release
+    env->ReleaseByteArrayElements(src, p_src, 0);
+
+    return dst;
+
+}
+
+
+
 }
